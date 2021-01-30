@@ -25,6 +25,27 @@ export const fetchData = async country => {
     }
 };
 
+// export const fetchData = async country => {
+//     let changeableURL = url;
+
+//     if (country) {
+//         changeableURL = `${url}/${country}`;
+//     }
+//     try {
+//         const {
+//             data
+//         } = await axios.get(changeableURL);
+
+
+//         const modifiedData = {
+//             data
+//         };
+//         return modifiedData;
+//     } catch (ex) {
+//         throw ex;
+//         console.log(ex.message);
+//     }
+// };
 
 
 

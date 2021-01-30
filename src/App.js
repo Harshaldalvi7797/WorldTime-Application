@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import { fetchData, fetchData1 } from "./api/index"
+import { fetchData } from "./api/index"
 import axios from "axios";
 import Country from "./components/countrypicker/Country";
 import CardDetails from "./components/Card/CardDetails";
+import CardClass from './components/Card/CardClass';
 export default class App extends Component {
   constructor(props) {
     super(props)
   }
   state = {
-    data: {},
+    data: [],
     country: ""
- 
+
   };
   async componentDidMount() {
     const fetchedData = await fetchData();
@@ -26,8 +27,9 @@ export default class App extends Component {
     this.setState({ data: response, country: country });
   };
   render() {
-    const { data, country, timezone } = this.state;
+    const { data } = this.state;
     console.log(data);
+    // console.log(data.data);
     return (
       <div className="container">
         <h3>World Timer</h3>
@@ -37,6 +39,7 @@ export default class App extends Component {
         </div>
 
         <CardDetails data={data} />
+        <CardClass data={data} />
       </div>
     )
   }
